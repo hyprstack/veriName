@@ -1,0 +1,20 @@
+{
+  "name": "NameGen",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/lab/bin/lab -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "hapi": "^6.5.1",
+    "joi": "^4.6.2",
+    "lab": "^4.1.0",
+    "request": "^2.40.0"
+  }
+}
