@@ -10,26 +10,27 @@ server.route(
     method: 'GET',
     handler: function (req, reply){
 
-      var r = request('http://twitter.com/' + req.params.username, function(error, response, body){
+      request('http://twitter.com/' + req.params.username, function(error, response, body){
         console.log(response.statusCode);
-        if ( error ){
-          throw error;
-        } else if ( response.statusCode === 404){
-          console.log( "Username " + req.params.username + " is available!" );
-          return response.statusCode;
-        } else {
-          console.log( "Username " + req.params.username + " is already taken!" );
-          return response.statusCode;
+        // if ( error ){
+        //   throw error; // why are you throwing an error...? Do you want your app to crash?
+        // }
+        if ( response.statusCode === 404 ) {
+          console.info( "Username " + req.params.username + " is available!" );
+          reply({"available":"yes"});
+        }
+        if ( response.statusCode === 200 ) {
+          console.error( "Username " + req.params.username + " is already taken!" );
+          reply({"available":"no"});
         }
       });
-      reply(r);
     }
 });
 
-if (!module.parent) {
+// if (!module.parent) {
     server.start(function() {
-        console.log("Server started", server.info.uri);
+        // console.log("Server started", server.info.uri);
     });
-}
+// }
 
 module.exports = server;
