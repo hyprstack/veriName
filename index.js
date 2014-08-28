@@ -10,26 +10,27 @@ server.route(
     method: 'GET',
     handler: function (req, reply){
 
-      var r = request('http://twitter.com/' + req.params.username, function(error, response, body){
+        request('http://twitter.com/' + req.params.username, function(error, response, body){
         console.log(response.statusCode);
-        if ( error ){
-          throw error;
-        } else if ( response.statusCode === 404){
+
+        if ( response.statusCode === 404 ) {
           console.log( "Username " + req.params.username + " is available!" );
-          return response.statusCode;
-        } else {
+          reply({"available":"yes"});
+        }
+
+        if ( response.statusCode === 200 ) {
           console.log( "Username " + req.params.username + " is already taken!" );
-          return response.statusCode;
+          reply({"available":"no"});
         }
       });
-      reply(r);
     }
+  }
+);
+
+
+server.start(function() {
+    console.log("Server started", server.info.uri);
 });
 
-if (!module.parent) {
-    server.start(function() {
-        console.log("Server started", server.info.uri);
-    });
-}
 
 module.exports = server;

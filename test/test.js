@@ -3,23 +3,35 @@ var lab = exports.lab = Lab.script();
 var server = require('../'); // require index.js
 var request = require('request');
 
-lab.experiment( "Test Username Existence", function() {
+lab.experiment( "Test username existence", function() {
   // tests
 
-  lab.test( "Test username exists", function(done){
+    lab.test("Expect status code 200 for name that is taken", function(done){
 
-      request('http://twitter.com/BarackObama', function(error, response, body){
-        Lab.expect(response.statusCode).to.equal(201);
+      var options = {
+        method: 'GET',
+        url: '/timmy'
+      };
+      //server inject lets you simulate an http request
+      server.inject(options, function(response){
+        Lab.expect(response.statusCode).to.equal(200);
+        Lab.expect(response.result.available).to.equal("no");
+        done();
       });
-          done();
     });
 
-    lab.test("Test username does not exists", function(done){
+    lab.test("Expect status code 400 for a name that is still available", function(done){
 
-        request('http://twitter.com/jhkhksdhkjahsdfkjhasdf', function(error, response, body){
-          Lab.expect(response.statusCode).to.equal(404);
-        });
-          done();
+      var options = {
+        method: 'GET',
+        url: '/sdlkjflsajdfljalskjfjkhkjhd'
+      };
+      //server inject lets you simulate an http request
+      server.inject(options, function(response){
+        Lab.expect(response.statusCode).to.equal(200);
+        Lab.expect(response.result.available).to.equal("yes");
+        done();
       });
+    });
 
   });
