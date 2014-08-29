@@ -7,12 +7,7 @@
     "test": "test"
   },
   "scripts": {
-<<<<<<< HEAD
     "test": "./node_modules/lab/bin/lab -c -v && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html"
-=======
-    "test": "./node_modules/lab/bin/lab -cv",
-    "coverage": "./node_modules/lab/bin/lab -r html -o ./test/coverage.html"
->>>>>>> 5b595901285bcca17edca4bfb642b345866cbf54
   },
   "author": "",
   "license": "ISC",
