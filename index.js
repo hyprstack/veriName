@@ -4,7 +4,7 @@ var request = require('request');
 
 var server = Hapi.createServer('localhost', 8080);
 
-server.route(
+var routes =[
   {
     path: '/{username}',
     method: 'GET',
@@ -25,8 +25,9 @@ server.route(
       });
     }
   }
-);
+];
 
+server.route(routes);
 
 server.start(function() {
     console.log("Server started", server.info.uri);
