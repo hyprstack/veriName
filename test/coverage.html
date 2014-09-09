@@ -253,26 +253,26 @@
             <li><a href="#overview">overview</a></li>
             
             <li>
-                <span class="cov high">100</span>
+                <span class="cov high">94.44</span>
                 <a href="#index.js"><span class="basename">index.js</span></a>
             </li>
             
         </div>
         <div class="stats high">
-            <div class="percentage">100%</div>
-            <div class="sloc">26</div>
-            <div class="hits">26</div>
-            <div class="misses">0</div>
+            <div class="percentage">94.44%</div>
+            <div class="sloc">72</div>
+            <div class="hits">68</div>
+            <div class="misses">4</div>
         </div>
         <div id="files">
             
             <div class="file">
                 <h2 id="index.js">index.js</h2>
                 <div class="stats high">
-                    <div class="percentage">100%</div>
-                    <div class="sloc">26</div>
-                    <div class="hits">26</div>
-                    <div class="misses">0</div>
+                    <div class="percentage">94.44%</div>
+                    <div class="sloc">72</div>
+                    <div class="hits">68</div>
+                    <div class="misses">4</div>
                 </div>
                 <table>
                     <thead>
@@ -336,7 +336,7 @@
                         <tr class="hit">
                             <td class="line">7</td>
                             <td class="hits">1</td>
-                            <td class="source">server.route(</td>
+                            <td class="source">var routes =[</td>
                         </tr>
                     
                 
@@ -384,7 +384,7 @@
                         <tr class="hit">
                             <td class="line">13</td>
                             <td class="hits">2</td>
-                            <td class="source">        request(&#x27;http://twitter.com/&#x27; + req.params.username, function(error, response, body){</td>
+                            <td class="source">      request(&#x27;http://twitter.com/&#x27; + req.params.username, function(error, response, body){</td>
                         </tr>
                     
                 
@@ -416,7 +416,7 @@
                         <tr class="hit">
                             <td class="line">17</td>
                             <td class="hits">1</td>
-                            <td class="source">          console.log( &quot;Username &quot; + req.params.username + &quot; is available!&quot; );</td>
+                            <td class="source">          console.log( &quot;Username &quot; + req.params.username + &quot; is available on Twitter&quot; );</td>
                         </tr>
                     
                 
@@ -456,7 +456,7 @@
                         <tr class="hit">
                             <td class="line">22</td>
                             <td class="hits">1</td>
-                            <td class="source">          console.log( &quot;Username &quot; + req.params.username + &quot; is already taken!&quot; );</td>
+                            <td class="source">          console.log( &quot;Username &quot; + req.params.username + &quot; is already taken on Twitter&quot; );</td>
                         </tr>
                     
                 
@@ -488,23 +488,23 @@
                         <tr class="hit">
                             <td class="line">26</td>
                             <td class="hits"></td>
-                            <td class="source">    }</td>
+                            <td class="source"></td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">27</td>
-                            <td class="hits"></td>
-                            <td class="source">  }</td>
+                            <td class="hits">2</td>
+                            <td class="source">      request(&#x27;http://github.com/&#x27; + req.params.username, function(error, response, body){</td>
                         </tr>
                     
                 
                     
                         <tr class="hit">
                             <td class="line">28</td>
-                            <td class="hits"></td>
-                            <td class="source">);</td>
+                            <td class="hits">1</td>
+                            <td class="source">        console.log(response.statusCode);</td>
                         </tr>
                     
                 
@@ -517,34 +517,40 @@
                     
                 
                     
-                        <tr class="hit">
-                            <td class="line">30</td>
-                            <td class="hits"></td>
-                            <td class="source"></td>
-                        </tr>
+                        
+                            <tr class="chunks">
+                                <td class="line">30</td>
+                                <td class="hits"></td>
+                                <td class="source"><div>        if ( </div><div class="miss false">response.statusCode === 404</div><div> ) {</div></td>
+                            </tr>
+                        
                     
                 
                     
-                        <tr class="hit">
-                            <td class="line">31</td>
-                            <td class="hits">1</td>
-                            <td class="source">server.start(function() {</td>
-                        </tr>
+                        
+                            <tr class="miss">
+                                <td class="line">31</td>
+                                <td class="hits"></td>
+                                <td class="source">          console.log( &quot;Username &quot; + req.params.username + &quot; is available on Github&quot; );</td>
+                            </tr>
+                        
                     
                 
                     
-                        <tr class="hit">
-                            <td class="line">32</td>
-                            <td class="hits">1</td>
-                            <td class="source">    console.log(&quot;Server started&quot;, server.info.uri);</td>
-                        </tr>
+                        
+                            <tr class="miss">
+                                <td class="line">32</td>
+                                <td class="hits"></td>
+                                <td class="source">          reply({&quot;available&quot;:&quot;yes&quot;});</td>
+                            </tr>
+                        
                     
                 
                     
                         <tr class="hit">
                             <td class="line">33</td>
                             <td class="hits"></td>
-                            <td class="source">});</td>
+                            <td class="source">        }</td>
                         </tr>
                     
                 
@@ -557,8 +563,74 @@
                     
                 
                     
+                        
+                            <tr class="chunks">
+                                <td class="line">35</td>
+                                <td class="hits"></td>
+                                <td class="source"><div>        if ( </div><div class="miss true">response.statusCode === 200</div><div> ) {</div></td>
+                            </tr>
+                        
+                    
+                
+                    
                         <tr class="hit">
-                            <td class="line">35</td>
+                            <td class="line">36</td>
+                            <td class="hits">1</td>
+                            <td class="source">          console.log( &quot;Username &quot; + req.params.username + &quot; is already taken on Github&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">37</td>
+                            <td class="hits">1</td>
+                            <td class="source">          reply({&quot;available&quot;:&quot;no&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">38</td>
+                            <td class="hits"></td>
+                            <td class="source">        }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">39</td>
+                            <td class="hits"></td>
+                            <td class="source">      });</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">40</td>
+                            <td class="hits"></td>
+                            <td class="source">      /*</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">41</td>
+                            <td class="hits"></td>
+                            <td class="source">    request(&#x27;http://pinterest.com/&#x27; + req.params.username, function(error, response, body){</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">42</td>
+                            <td class="hits"></td>
+                            <td class="source">      console.log(response.statusCode);</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">43</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
@@ -566,7 +638,399 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">36</td>
+                            <td class="line">44</td>
+                            <td class="hits"></td>
+                            <td class="source">      if ( response.statusCode === 404 ) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">45</td>
+                            <td class="hits"></td>
+                            <td class="source">        console.log( &quot;Username &quot; + req.params.username + &quot; is available on Pinterest&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">46</td>
+                            <td class="hits"></td>
+                            <td class="source">        reply({&quot;available&quot;:&quot;yes&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">47</td>
+                            <td class="hits"></td>
+                            <td class="source">      }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">48</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">49</td>
+                            <td class="hits"></td>
+                            <td class="source">      if ( response.statusCode === 200 ) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">50</td>
+                            <td class="hits"></td>
+                            <td class="source">        console.log( &quot;Username &quot; + req.params.username + &quot; is already taken on Pinterest&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">51</td>
+                            <td class="hits"></td>
+                            <td class="source">        reply({&quot;available&quot;:&quot;no&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">52</td>
+                            <td class="hits"></td>
+                            <td class="source">      }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">53</td>
+                            <td class="hits"></td>
+                            <td class="source">    });</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">54</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">55</td>
+                            <td class="hits"></td>
+                            <td class="source">    request(&#x27;http://facebook.com/&#x27; + req.params.username, function(error, response, body){</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">56</td>
+                            <td class="hits"></td>
+                            <td class="source">      console.log(response.statusCode);</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">57</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">58</td>
+                            <td class="hits"></td>
+                            <td class="source">      if ( response.statusCode === 404 ) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">59</td>
+                            <td class="hits"></td>
+                            <td class="source">        console.log( &quot;Username &quot; + req.params.username + &quot; is available on Facebook&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">60</td>
+                            <td class="hits"></td>
+                            <td class="source">        reply({&quot;available&quot;:&quot;yes&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">61</td>
+                            <td class="hits"></td>
+                            <td class="source">      }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">62</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">63</td>
+                            <td class="hits"></td>
+                            <td class="source">      if ( response.statusCode === 200 ) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">64</td>
+                            <td class="hits"></td>
+                            <td class="source">        console.log( &quot;Username &quot; + req.params.username + &quot; is already taken on Facebook&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">65</td>
+                            <td class="hits"></td>
+                            <td class="source">        reply({&quot;available&quot;:&quot;no&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">66</td>
+                            <td class="hits"></td>
+                            <td class="source">      }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">67</td>
+                            <td class="hits"></td>
+                            <td class="source">    });</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">68</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">69</td>
+                            <td class="hits"></td>
+                            <td class="source">    request(&#x27;http://instagram.com/&#x27; + req.params.username, function(error, response, body){</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">70</td>
+                            <td class="hits"></td>
+                            <td class="source">      console.log(response.statusCode);</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">71</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">72</td>
+                            <td class="hits"></td>
+                            <td class="source">      if ( response.statusCode === 404 ) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">73</td>
+                            <td class="hits"></td>
+                            <td class="source">        console.log( &quot;Username &quot; + req.params.username + &quot; is available on Instagram&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">74</td>
+                            <td class="hits"></td>
+                            <td class="source">        reply({&quot;available&quot;:&quot;yes&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">75</td>
+                            <td class="hits"></td>
+                            <td class="source">      }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">76</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">77</td>
+                            <td class="hits"></td>
+                            <td class="source">      if ( response.statusCode === 200 ) {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">78</td>
+                            <td class="hits"></td>
+                            <td class="source">        console.log( &quot;Username &quot; + req.params.username + &quot; is already taken on Instagram&quot; );</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">79</td>
+                            <td class="hits"></td>
+                            <td class="source">        reply({&quot;available&quot;:&quot;no&quot;});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">80</td>
+                            <td class="hits"></td>
+                            <td class="source">      }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">81</td>
+                            <td class="hits"></td>
+                            <td class="source">    });*/</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">82</td>
+                            <td class="hits"></td>
+                            <td class="source">    }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">83</td>
+                            <td class="hits"></td>
+                            <td class="source">  }</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">84</td>
+                            <td class="hits"></td>
+                            <td class="source">];</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">85</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">86</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.route(routes);</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">87</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">88</td>
+                            <td class="hits">1</td>
+                            <td class="source">server.start(function() {</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">89</td>
+                            <td class="hits">1</td>
+                            <td class="source">    console.log(&quot;Server started&quot;, server.info.uri);</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">90</td>
+                            <td class="hits"></td>
+                            <td class="source">});</td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">91</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">92</td>
+                            <td class="hits"></td>
+                            <td class="source"></td>
+                        </tr>
+                    
+                
+                    
+                        <tr class="hit">
+                            <td class="line">93</td>
                             <td class="hits">1</td>
                             <td class="source">module.exports = server;</td>
                         </tr>
@@ -574,7 +1038,7 @@
                 
                     
                         <tr class="hit">
-                            <td class="line">37</td>
+                            <td class="line">94</td>
                             <td class="hits"></td>
                             <td class="source"></td>
                         </tr>
