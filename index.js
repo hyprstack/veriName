@@ -10,7 +10,8 @@ var routes =[
     method: 'GET',
     handler: function (req, reply){
 
-      request('http://' + req.hostname + '/' + req.params.username, function(error, response, body){
+      request('http://www.twitter.com/' + req.params.username, function(error, response, body){
+        console.log("Request received");
         console.log(response.statusCode);
 
         if ( response.statusCode === 404 ) {
