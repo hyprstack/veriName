@@ -2,12 +2,15 @@
   "name": "NameGen",
   "version": "0.0.0",
   "description": "",
+  "repository":"git://github.com/MMRibot/veriName.git",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c -v && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html"
+    "test": "./node_modules/lab/bin/lab -c -v && ./node_modules/lab/bin/lab -r html -o ./test/coverage.html",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
