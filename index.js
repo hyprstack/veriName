@@ -3,7 +3,7 @@ var request = require('request');
 
 
 
-var server = Hapi.createServer('localhost', 8080);
+var server = Hapi.createServer(process.env.PORT || 8080);
 
 
 
