@@ -5,9 +5,7 @@ $(document).ready(function(){
     console.log(username);
     //send ajax request to server to check for username availability
     $.get("http://localhost:8080/"+username, username, function(data){
-      console.log(typeof data);
       console.log(data);
-      alert(data);
     });
   });
 });
