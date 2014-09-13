@@ -2,17 +2,17 @@ var Hapi = require('hapi');
 var request = require('request');
 
 
-var server = Hapi.createServer('localhost', 8080, {cors: true});
+var server = Hapi.createServer('localhost', 8080);
 
 var routes =[
-  // {
-  //   path: "/",
-  //   method: "GET",
-  //   handler: function (req, reply){
-  //     console.log("Home page loaded and runnning!");
-  //     reply.file('index.html');
-  //   }
-  // },
+  {
+    path: "/",
+    method: "GET",
+    handler: function (req, reply){
+      console.log("Home page loaded and runnning!");
+      reply.file('index.html');
+    }
+  },
   {
     path: '/{username}',
     method: 'GET',
@@ -32,6 +32,15 @@ var routes =[
           reply({"available":"no"});
         }
       });
+    }
+  },
+  {
+    method: 'GET',
+    path: '/static/{param*}',
+    handler: {
+        directory: {
+            path: 'static'
+        }
     }
   }
 ];
