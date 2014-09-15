@@ -1,9 +1,7 @@
 var Hapi = require('hapi');
 var request = require('request');
 
-
-
-var server = Hapi.createServer(process.env.PORT || 8080);
+var server = Hapi.createServer('localhost', 8080);
 
 
 
@@ -21,17 +19,17 @@ var routes =[
     method: 'GET',
     handler: function (req, reply){
 
-      request('http://www.twitter.com/' + req.params.username, function(error, response, body){
+      request('http://www.'+ req.domain.domains +'.com/' + req.params.username, function(error, response, body){
         console.log("Request received");
         console.log(response.statusCode);
 
         if ( response.statusCode === 404 ) {
-          console.log( "Username " + req.params.username + " is available on Twitter" );
+          console.log( "Username " + req.params.username + " is available on " + req.domain.domains);
           reply({"available":"yes"});
         }
 
         if ( response.statusCode === 200 ) {
-          console.log( "Username " + req.params.username + " is already taken on Twitter" );
+          console.log( "Username " + req.params.username + " is already taken on " + req.domain.domains);
           reply({"available":"no"});
         }
       });
