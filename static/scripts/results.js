@@ -1,6 +1,15 @@
 $(document).ready(function(){
   console.log("Ready!");
 
+  var domains=[ ];
+    domains.push($(".facebook").find("a").text());
+    domains.push($(".github").find("a").text());
+    domains.push($(".twitter").find("a").text());
+    domains.push($(".instagram").find("a").text());
+    domains.push($(".pinterest").find("a").text());
+  console.log(domains);
+
+
   $("#searchbutton").on('click', function(event){
 
     var username = $("#searchname").val().trim(); // store value from searchbox
@@ -14,12 +23,21 @@ $(document).ready(function(){
       var newhtml = "<p>";
       newhtml += username;
       newhtml += "</p>";
-      $(".username").html(newhtml); // this has the nasty effect of continuously adding the search terms to the html
+      $(".username").html(newhtml);
       $(".username").remove("newhtml");
+
+      var domainCheck = function(){
+        $.ajax({
+          url: "/"+username,
+          type: "get",
+          data: {domains: domains, username: username},
+          success: function(response){
+          console.log(response);
+            }
+        });
+      };
       //send ajax request to server to check for username availability
-      $.get("/"+username, username, function(data){
-        console.log(data);
-      });
+        domains.forEach(domainCheck);
     }
   });
 });
