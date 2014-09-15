@@ -26,18 +26,23 @@ $(document).ready(function(){
       $(".username").html(newhtml);
       $(".username").remove("newhtml");
 
-      var domainCheck = function(){
+      var domainCheck = function(domainName){
         $.ajax({
           url: "/"+username,
           type: "get",
-          data: {domains: domains, username: username},
+          data: {domainName: domainName, username: username},
           success: function(response){
-          console.log(response);
+            console.log(domainName);
+            console.log(response);
             }
         });
       };
       //send ajax request to server to check for username availability
-        domains.forEach(domainCheck);
+        var len = domains.length;
+        for(var i = 0; i<len; i++){
+          domainCheck(domains[i]);
+          console.log(domains[i]+'\n');
+        }
     }
   });
 });
