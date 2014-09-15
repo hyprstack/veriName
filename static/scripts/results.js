@@ -37,7 +37,7 @@ $(document).ready(function(){
             }
         });
       };
-      //send ajax request to server to check for username availability
+      //send ajax request to server for each domain name to check for username availability
         var len = domains.length;
         for(var i = 0; i<len; i++){
           domainCheck(domains[i]);

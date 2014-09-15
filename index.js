@@ -18,8 +18,8 @@ var routes =[
     path: '/{username}',
     method: 'GET',
     handler: function (req, reply){
-
-      request('http://www.'+ req.domain.domains +'.com/' + req.params.username, function(error, response, body){
+// this is not working. the domain name is not being received from the client side. instead its passing undefined!
+      request('http://www.'+ req.domain.domainName +'.com/' + req.params.username, function(error, response, body){
         console.log("Request received");
         console.log(response.statusCode);
 
