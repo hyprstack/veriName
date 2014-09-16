@@ -20,9 +20,9 @@ var routes =[
     handler: function (req, reply){
 // this is not working. the domain name is not being received from the client side. instead its passing undefined!
       request('http://www.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
-        console.log('http://www.'+ req.query.domainName +'.com/' + req.params.username); //This does not work for facebook - always returns a 200 response
-        console.log("Request received");
-        console.log(response.statusCode);
+        // console.log('http://www.'+ req.query.domainName +'.com/' + req.params.username); //This does not work for facebook - always returns a 200 response
+        // console.log("Request received");
+        // console.log(response.statusCode);
 
         if ( response.statusCode === 404 ) {
           console.log( "Username " + req.params.username + " is available on " + req.query.domainName);
@@ -50,7 +50,7 @@ var routes =[
 server.route(routes);
 
 server.start(function() {
-    console.log("Server started", server.info.uri);
+    // console.log("Server started", server.info.uri);
 });
 
 

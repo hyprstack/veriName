@@ -7,7 +7,7 @@ $(document).ready(function(){
     domains.push($("#available .twitter").find("a").text());
     domains.push($("#available .instagram").find("a").text());
     domains.push($("#available .pinterest").find("a").text());
-  console.log(domains);
+  // console.log(domains);
 
 
   $("#searchbutton").on('click', function(event){
@@ -16,7 +16,7 @@ $(document).ready(function(){
     $("#unavailable").find("div").removeClass("hidden");
 
     var username = $("#searchname").val().trim(); // store value from searchbox
-    console.log(username);
+    // console.log(username);
 
     if(username === ""){
       event.preventDefault();
@@ -35,8 +35,8 @@ $(document).ready(function(){
           type: "get",
           data: {domainName: domainName, username: username},
           success: function(response){
-            console.log(domainName);
-            console.log(response.available);
+            // console.log(domainName);
+            // console.log(response.available);
 
                 // var elem = $("#available").find("div");
               if(response.available === "yes"){
@@ -55,7 +55,7 @@ $(document).ready(function(){
         var len = domains.length;
         for(var i = 0; i<len; i++){
           domainCheck(domains[i]);
-          console.log(domains[i]+'\n');
+          // console.log(domains[i]+'\n');
         }
     }
   });
