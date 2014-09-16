@@ -4,6 +4,9 @@ This app is aimed at helping people verify the existence of a username in social
 
 *App still currently under construction*  
 
+##Heroku Demo:
+http://nomgen.herokuapp.com/
+
 ###To do:
 
 - [x] Define UI
