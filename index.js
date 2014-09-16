@@ -19,17 +19,17 @@ var routes =[
     method: 'GET',
     handler: function (req, reply){
 // this is not working. the domain name is not being received from the client side. instead its passing undefined!
-      request('http://www.'+ req.domain.domainName +'.com/' + req.params.username, function(error, response, body){
+      request('http://www.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
         console.log("Request received");
         console.log(response.statusCode);
 
         if ( response.statusCode === 404 ) {
-          console.log( "Username " + req.params.username + " is available on " + req.domain.domains);
+          console.log( "Username " + req.params.username + " is available on " + req.query.domainName);
           reply({"available":"yes"});
         }
 
         if ( response.statusCode === 200 ) {
-          console.log( "Username " + req.params.username + " is already taken on " + req.domain.domains);
+          console.log( "Username " + req.params.username + " is already taken on " + req.query.domainName);
           reply({"available":"no"});
         }
       });
