@@ -12,5 +12,8 @@ This app is aimed at helping people verify the existence of a username in social
 - [x] Write server side using **hapiJs**
 - [x] Use **fontawesome** for icons in html
 - [ ] Allow user to copy url with searched name and results to share with others
-- [ ] Define generic server side code for name searching
-- [ ] Hide icons with an available result of "No"
+- [x] Define generic server side code for name searching
+- [X] Hide icons with an available result of "No"
+
+#####NOTE
+- Look-up how to properly search username on facebook!
