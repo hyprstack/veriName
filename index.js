@@ -18,22 +18,43 @@ var routes =[
     path: '/{username}',
     method: 'GET',
     handler: function (req, reply){
-// this is not working. the domain name is not being received from the client side. instead its passing undefined!
-      request('http://www.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
-        // console.log('http://www.'+ req.query.domainName +'.com/' + req.params.username); //This does not work for facebook - always returns a 200 response
-        // console.log("Request received");
-        // console.log(response.statusCode);
 
-        if ( response.statusCode === 404 ) {
-          console.log( "Username " + req.params.username + " is available on " + req.query.domainName);
-          reply({"available":"yes"});
-        }
+        // test username availability for facebook
+      if (req.query.domainName === "facebook") {
 
-        if ( response.statusCode === 200 ) {
-          console.log( "Username " + req.params.username + " is already taken on " + req.query.domainName);
-          reply({"available":"no"});
-        }
-      });
+        request('http://graph.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
+          // console.log("Request received");
+          // console.log(response.statusCode);
+
+          if ( response.statusCode === 404 ) {
+            console.log( "Username " + req.params.username + " is available on " + req.query.domainName);
+            reply({"available":"yes"});
+          }
+
+          if ( response.statusCode === 200 ) {
+            console.log( "Username " + req.params.username + " is already taken on " + req.query.domainName);
+            reply({"available":"no"});
+          }
+        });
+
+        // test username availability for all other social networks
+      } else {
+
+        request('http://www.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
+          // console.log("Request received");
+          // console.log(response.statusCode);
+
+          if ( response.statusCode === 404 ) {
+            console.log( "Username " + req.params.username + " is available on " + req.query.domainName);
+            reply({"available":"yes"});
+          }
+
+          if ( response.statusCode === 200 ) {
+            console.log( "Username " + req.params.username + " is already taken on " + req.query.domainName);
+            reply({"available":"no"});
+          }
+        });
+      }
     }
   },
   {
