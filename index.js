@@ -19,12 +19,13 @@ var routes =[
     method: 'GET',
     handler: function (req, reply){
 
-        // test username availability for facebook
+        // verify username availability for facebook
       if (req.query.domainName === "facebook") {
 
         request('http://graph.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
-          // console.log("Request received");
+          // console.log("Request received " + req.query.domainName);
           // console.log(response.statusCode);
+
 
           if ( response.statusCode === 404 ) {
             console.log( "Username " + req.params.username + " is available on " + req.query.domainName);
@@ -37,11 +38,11 @@ var routes =[
           }
         });
 
-        // test username availability for all other social networks
+        // verify username availability for all other social networks
       } else {
 
         request('http://www.'+ req.query.domainName +'.com/' + req.params.username, function(error, response, body){
-          // console.log("Request received");
+          // console.log("Request received "  + req.query.domainName);
           // console.log(response.statusCode);
 
           if ( response.statusCode === 404 ) {
